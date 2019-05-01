@@ -1,0 +1,11 @@
+How to create a topic:
+
+export PATH=$PATH:/usr/hdp/current/kafka-broker/bin
+
+kafka-topics.sh --create --zookeeper c.insofe.edu.in:2181 --replication-factor 1 --partitions 1 --topic insofe_topic
+
+kafka-topics.sh --list --zookeeper  c.insofe.edu.in:2181
+
+kafka-console-producer.sh --broker-list c.insofe.edu.in:9092 --topic insofe_1234B36
+
+kafka-console-consumer.sh --zookeeper c.insofe.edu.in:2181 --topic insofe_topic --from-beginning

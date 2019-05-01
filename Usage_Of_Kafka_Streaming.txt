@@ -1,0 +1,16 @@
+Kafka and Spark Streaming
+
+#1. A Spark Streaming Consumer consumes the data from the Kafka topic and do some processing using spark.
+#From one terminal you need to run the spark programme to handle the streaming data to run that use the below command.
+spark-submit --jars /home/<user_id>/Uber/Jars/spark-streaming-kafka-0-8-assembly_2.11-2.1.1.jar /home/<user_Id>/Batch36/Uber/Scripts/Spark_streaming.py c.insofe.edu.in:2181 <your_topic_name>
+
+#2. A Kafka Producer will read data from the static source (file path) and writes data into Kafka topic
+#From another terminal run the following command to push the data to kafka producer.
+bash /home/<user_id>/Batch36/Uber/Scripts/kafkaloader.sh /home/<user_Id>/Uber/StreamingData c.insofe.edu.in:9092 <your_topic_name>
+
+#kafkaloader.sh - This script accepts 3 arguments 
+#i. StreamingData/ - Input directory path
+#ii. ip of the Kafka broker
+#iii. <your_topic_name><id>_topic - topic name you created in the previous step
+
+#3. Verify streaming data available in HDFS
